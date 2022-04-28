@@ -1,3 +1,115 @@
 body {
-  background-color: aquamarine;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff;
+}
+
+.main-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.todo-container {
+  width: 600px;
+  min-height: 150px;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.todo-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 50px;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+}
+.refresh {
+  margin-right: 15px;
+}
+
+hr {
+  margin: 0;
+}
+
+.add-task-container {
+  height: 50px;
+  padding: 5px;
+}
+
+.add-task-input {
+  border: 0;
+  border-radius: 0;
+  width: 90%;
+  height: inherit;
+  padding-left: 10px;
+}
+
+.add-task-input::placeholder {
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.add-task-btn {
+  display: inline;
+  border: 0;
+  border-radius: 0;
+  background-color: #fff;
+  height: inherit;
+}
+
+.add-task-btn:hover {
+  cursor: pointer;
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  padding: 5px;
+}
+
+.check {
+  margin: 0 8px;
+}
+
+.description {
+  width: 85%;
+  margin: 0 2px;
+}
+
+.edit-icon {
+  margin: 0 8px;
+}
+
+.edit-icon:hover {
+  cursor: move;
+}
+
+.clear {
+  height: 50px;
+  padding: 0;
+  position: relative;
+  bottom: 0;
+  text-align: center;
+}
+
+.clear-btn {
+  height: inherit;
+  width: 100%;
+  border: 0;
+  background-color: #eee;
+}
+
+.clear-btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
