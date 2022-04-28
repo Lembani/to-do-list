@@ -3,6 +3,8 @@
 # To Do List
 > A tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete
 
+<img width="764" alt="to-do" src="https://user-images.githubusercontent.com/30483991/165741515-ae721c41-3b3c-47af-aa78-2880629fc9a3.png">
+
 ## Built With
 
 - HTML
