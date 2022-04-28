@@ -3,12 +3,12 @@ import './style.css';
 function component() {
   const tasks = [
     {
-      description: 'Make breakfast.',
+      description: 'Do morning workout.',
       completed: true,
       index: 0,
     },
     {
-      description: 'Do morning workout.',
+      description: 'Make breakfast.',
       completed: false,
       index: 1,
     },
@@ -29,7 +29,7 @@ function component() {
   tasks.forEach((task) => {
     const taskTemplate = `
       <div class="tasks-container">
-        <input class="check" type="checkbox" name="taskCheck" id="taskChecked">
+        <input class="check" type="checkbox" name="taskCheck" id="${task.index}">
         <p class="description">${task.description}</p>
         <span class="edit-icon  material-icons">more_vert</span>
       </div>
