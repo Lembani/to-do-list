@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './style.css';
 
 function component() {
@@ -25,10 +24,22 @@ function component() {
     },
   ];
 
-  const mainHeading = document.querySelector('.main-heading');
-  mainHeading.innerHTML = _.join(['To Do List'], ' ');
+  const mainTasks = document.querySelector('.main-tasks');
 
-  return mainHeading;
+  tasks.forEach((task) => {
+    const taskTemplate = `
+      <div class="tasks-container">
+        <input class="check" type="checkbox" name="taskCheck" id="taskChecked">
+        <p class="description">${task.description}</p>
+        <span class="edit-icon  material-icons">more_vert</span>
+      </div>
+      <hr>
+  `;
+
+    mainTasks.innerHTML += taskTemplate;
+  });
+
+  return mainTasks;
 }
 
-document.body.appendChild(component());
+component();
