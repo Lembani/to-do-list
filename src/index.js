@@ -1,45 +1,16 @@
+import addTask from './modules/add-task';
+import showTasks from './modules/show-tasks';
+
 import './style.css';
 
-function component() {
-  const tasks = [
-    {
-      description: 'Do morning workout.',
-      completed: true,
-      index: 0,
-    },
-    {
-      description: 'Make breakfast.',
-      completed: false,
-      index: 1,
-    },
-    {
-      description: 'Prepare for morning session.',
-      completed: true,
-      index: 2,
-    },
-    {
-      description: 'Join morning session meeting.',
-      completed: false,
-      index: 3,
-    },
-  ];
+const addTaskInput = document.querySelector('.add-task-input');
+const addBtn = document.querySelector('.add-task-btn');
 
-  const mainTasks = document.querySelector('.main-tasks');
+document.addEventListener('DOMContentLoaded', showTasks);
 
-  tasks.forEach((task) => {
-    const taskTemplate = `
-      <div class="tasks-container">
-        <input class="check" type="checkbox" name="taskCheck" id="${task.index}">
-        <p class="description">${task.description}</p>
-        <span class="edit-icon  material-icons">more_vert</span>
-      </div>
-      <hr>
-  `;
-
-    mainTasks.innerHTML += taskTemplate;
-  });
-
-  return mainTasks;
-}
-
-component();
+addBtn.addEventListener('click', addTask);
+addTaskInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    addTask(e);
+  }
+});
