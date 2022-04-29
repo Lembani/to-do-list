@@ -85,6 +85,8 @@ hr {
 .description {
   width: 85%;
   margin: 0 2px;
+  border: 0;
+  height: inherit;
 }
 
 .edit-icon {
