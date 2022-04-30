@@ -87,6 +87,7 @@ hr {
   margin: 0 2px;
   border: 0;
   height: inherit;
+  outline: none;
 }
 
 .edit-icon {
