@@ -1,16 +1,19 @@
-import addTask from './modules/add-task';
-import showTasks from './modules/show-tasks';
+import Task from './actions.js';
 
 import './style.css';
 
 const addTaskInput = document.querySelector('.add-task-input');
 const addBtn = document.querySelector('.add-task-btn');
+const mainTasksCont = document.querySelector('.main-tasks');
 
-document.addEventListener('DOMContentLoaded', showTasks);
-
-addBtn.addEventListener('click', addTask);
+addBtn.addEventListener('click', Task.addTask);
 addTaskInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    addTask(e);
+    Task.addTask(e);
   }
 });
+
+mainTasksCont.addEventListener('click', Task.deleteTask);
+
+document.addEventListener('DOMContentLoaded', Task.showTasks);
+document.addEventListener('DOMContentLoaded', Task.actions);
