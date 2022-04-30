@@ -9,14 +9,28 @@ export default class Task {
     this.tasks = JSON.parse(localStorage.getItem('tasks')) !== null ? (this.tasks = JSON.parse(localStorage.getItem('tasks'))) : [];
     mainTasks.innerHTML = '';
     this.tasks.forEach((task) => {
-      const taskTemplate = `
-        <div class="tasks-container" id="${task.index}">
-          <input type="checkbox" class="check">
-          <input type="text" class="description" id="${task.index}" value="${task.description}">
-            <span class="edit-icon material-icons">delete<span>
-          </div>
-          <hr>
-        `;
+      let taskTemplate = `<div class="tasks-container" id="${task.index}">`;
+      if (task.completed) {
+        taskTemplate += `
+                  <span class="material-icons check" id="${task.index}">
+                    done
+                  </span>
+                  <input type="text" class="description completed" id="${task.index}" value="${task.description}">
+                  <span class="edit-icon material-icons">delete<span>
+                  </div>
+                  <hr>
+                  `;
+      } else {
+        taskTemplate += `
+                  <span class="material-icons check" id="${task.index}">
+                    check_box_outline_blank
+                  </span>
+                  <input type="text" class="description" id="${task.index}" value="${task.description}">
+                  <span class="edit-icon material-icons">delete<span>
+                  </div>
+                  <hr>
+                  `;
+      }
 
       mainTasks.innerHTML += taskTemplate;
     });
