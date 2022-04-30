@@ -1,45 +1,19 @@
+import Task from './actions.js';
+
 import './style.css';
 
-function component() {
-  const tasks = [
-    {
-      description: 'Do morning workout.',
-      completed: true,
-      index: 0,
-    },
-    {
-      description: 'Make breakfast.',
-      completed: false,
-      index: 1,
-    },
-    {
-      description: 'Prepare for morning session.',
-      completed: true,
-      index: 2,
-    },
-    {
-      description: 'Join morning session meeting.',
-      completed: false,
-      index: 3,
-    },
-  ];
+const addTaskInput = document.querySelector('.add-task-input');
+const addBtn = document.querySelector('.add-task-btn');
+const mainTasksCont = document.querySelector('.main-tasks');
 
-  const mainTasks = document.querySelector('.main-tasks');
+addBtn.addEventListener('click', Task.addTask);
+addTaskInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    Task.addTask(e);
+  }
+});
 
-  tasks.forEach((task) => {
-    const taskTemplate = `
-      <div class="tasks-container">
-        <input class="check" type="checkbox" name="taskCheck" id="${task.index}">
-        <p class="description">${task.description}</p>
-        <span class="edit-icon  material-icons">more_vert</span>
-      </div>
-      <hr>
-  `;
+mainTasksCont.addEventListener('click', Task.deleteTask);
 
-    mainTasks.innerHTML += taskTemplate;
-  });
-
-  return mainTasks;
-}
-
-component();
+document.addEventListener('DOMContentLoaded', Task.showTasks);
+document.addEventListener('DOMContentLoaded', Task.actions);
