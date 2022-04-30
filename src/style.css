@@ -82,12 +82,20 @@ hr {
   margin: 0 8px;
 }
 
+.check:hover {
+  cursor: pointer;
+}
+
 .description {
   width: 85%;
   margin: 0 2px;
   border: 0;
   height: inherit;
   outline: none;
+}
+
+.completed {
+  text-decoration: line-through;
 }
 
 .edit-icon {
