@@ -96,6 +96,12 @@ export default class Task {
     this.showTasks();
   }
 
+  static clearComplete = () => {
+    this.tasks = this.tasks.filter((task) => task.completed !== true);
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    this.showTasks();
+  }
+
   static actions = () => {
     const allTasks = document.querySelectorAll('.tasks-container');
     if (allTasks) {
