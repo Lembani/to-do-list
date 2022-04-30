@@ -9,14 +9,28 @@ export default class Task {
     this.tasks = JSON.parse(localStorage.getItem('tasks')) !== null ? (this.tasks = JSON.parse(localStorage.getItem('tasks'))) : [];
     mainTasks.innerHTML = '';
     this.tasks.forEach((task) => {
-      const taskTemplate = `
-        <div class="tasks-container" id="${task.index}">
-          <input type="checkbox" class="check">
-          <input type="text" class="description" id="${task.index}" value="${task.description}">
-            <span class="edit-icon material-icons">delete<span>
-          </div>
-          <hr>
-        `;
+      let taskTemplate = `<div class="tasks-container" id="${task.index}">`;
+      if (task.completed) {
+        taskTemplate += `
+                  <span class="material-icons check" id="${task.index}">
+                    done
+                  </span>
+                  <input type="text" class="description completed" id="${task.index}" value="${task.description}">
+                  <span class="edit-icon material-icons">delete<span>
+                  </div>
+                  <hr>
+                  `;
+      } else {
+        taskTemplate += `
+                  <span class="material-icons check" id="${task.index}">
+                    check_box_outline_blank
+                  </span>
+                  <input type="text" class="description" id="${task.index}" value="${task.description}">
+                  <span class="edit-icon material-icons">delete<span>
+                  </div>
+                  <hr>
+                  `;
+      }
 
       mainTasks.innerHTML += taskTemplate;
     });
@@ -69,6 +83,25 @@ export default class Task {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   };
 
+  static updateStatus(index) {
+    if (index !== undefined) {
+      if (this.tasks[index - 1].completed === true) {
+        this.tasks[index - 1].completed = false;
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      } else {
+        this.tasks[index - 1].completed = true;
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      }
+    }
+    this.showTasks();
+  }
+
+  static clearComplete = () => {
+    this.tasks = this.tasks.filter((task) => task.completed !== true);
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    this.showTasks();
+  }
+
   static actions = () => {
     const allTasks = document.querySelectorAll('.tasks-container');
     if (allTasks) {
@@ -78,6 +111,14 @@ export default class Task {
           const description = e.target.value;
           this.editTask(index, description);
           this.showTasks();
+        });
+      });
+    }
+    const statusBtns = document.querySelectorAll('.check');
+    if (statusBtns !== null) {
+      statusBtns.forEach((checkBtn) => {
+        checkBtn.addEventListener('click', (e) => {
+          this.updateStatus(e.target.attributes.id.value);
         });
       });
     }
