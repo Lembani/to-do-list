@@ -83,6 +83,19 @@ export default class Task {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   };
 
+  static updateStatus(index) {
+    if (index !== undefined) {
+      if (this.tasks[index - 1].completed === true) {
+        this.tasks[index - 1].completed = false;
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      } else {
+        this.tasks[index - 1].completed = true;
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      }
+    }
+    this.showTasks();
+  }
+
   static actions = () => {
     const allTasks = document.querySelectorAll('.tasks-container');
     if (allTasks) {
@@ -92,6 +105,14 @@ export default class Task {
           const description = e.target.value;
           this.editTask(index, description);
           this.showTasks();
+        });
+      });
+    }
+    const statusBtns = document.querySelectorAll('.check');
+    if (statusBtns !== null) {
+      statusBtns.forEach((checkBtn) => {
+        checkBtn.addEventListener('click', (e) => {
+          this.updateStatus(e.target.attributes.id.value);
         });
       });
     }
