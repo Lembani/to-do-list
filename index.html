@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <h1 class="main-heading">To Do List</h1>
+  <div class="todo-container">
+    <div class="todo-header">
+      <h2 class="title">Today's To Do</h2>
+      <span class="refresh material-icons">refresh</span>
+    </div>
+    <hr>
+    <form action="#" method="post" name="taskForm" class="add-task-container">
+      <input class="add-task-input" type="text" name="description" id="addTask" placeholder="Add to your list..." required>
+      <span class="add-task-btn material-icons">keyboard_return</span>
+    </form>
+    <hr>
+    <div class="main-tasks"></div>
+    <div class="clear">
+      <button type="button" class="clear-btn">Clear all completed</button>
+    </div>
+  </div>
+</body>
+</html>
