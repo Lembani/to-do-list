@@ -1,7 +1,6 @@
-const mainTasks = document.querySelector('.main-tasks');
-
 export default class Task {
   showTasks = () => {
+    const mainTasks = document.querySelector('.main-tasks');
     this.tasks = [];
     this.tasks = JSON.parse(localStorage.getItem('tasks')) !== null ? (this.tasks = JSON.parse(localStorage.getItem('tasks'))) : [];
     mainTasks.innerHTML = '';
@@ -44,15 +43,15 @@ export default class Task {
       index: 0,
     };
 
-    if (descrip.value === '') {
+    if (descrip === '') {
       return false;
     }
 
-    task.description = descrip.value;
+    task.description = descrip;
     task.index = this.tasks.length + 1;
     this.tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
-    descrip.value = '';
+    // descrip.value = '';
     this.showTasks();
     return true;
   };
