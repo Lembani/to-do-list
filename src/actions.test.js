@@ -30,6 +30,7 @@ const task = new Task();
 
 const taskOne = 'Task One';
 const taskTwo = 'Task Two';
+const taskThree = 'Task Three';
 
 describe('check if add and delete task are using localStorage and the DOM', () => {
   test('should add a task to localStorage', () => {
@@ -54,5 +55,33 @@ describe('check if add and delete task are using localStorage and the DOM', () =
   test('should remove task from the DOM', () => {
     const addedItems = document.querySelectorAll('.tasks-container');
     expect(addedItems.length).toBe(1);
+  });
+});
+
+describe('Check status, content updates and clear all completed tasks', () => {
+  test('should check if status is changed', () => {
+    task.updateStatus(1);
+    expect(JSON.parse(localStorage.getItem('tasks'))).toEqual([{ description: taskTwo, completed: true, index: 1 }]);
+  });
+
+  test('should check if task is edited', () => {
+    task.editTask(1, 'Task Two edited');
+    expect(JSON.parse(localStorage.getItem('tasks'))).toEqual([{ description: 'Task Two edited', completed: true, index: 1 }]);
+  });
+
+  test('should check if task is edited in the DOM', () => {
+    const inputDescription = document.querySelector('.description');
+    expect(inputDescription.value).toEqual('Task Two edited');
+  });
+
+  test('check if all completed tasks are cleared', () => {
+    task.addTask(taskThree);
+    task.clearComplete();
+    expect(JSON.parse(localStorage.getItem('tasks'))).toEqual([{ description: taskThree, completed: false, index: 1 }]);
+  });
+
+  test('check if all completed tasks are cleared in the DOM', () => {
+    const remainingItems = document.querySelectorAll('.tasks-container');
+    expect(remainingItems.length).toBe(1);
   });
 });
