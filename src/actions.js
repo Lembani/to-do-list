@@ -72,6 +72,7 @@ export default class Task {
   editTask = (index, description) => {
     this.tasks[index - 1].description = description;
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    this.showTasks();
   };
 
   updateStatus(index) {
@@ -113,8 +114,8 @@ export default class Task {
     if (statusBtns !== null) {
       statusBtns.forEach((checkBtn) => {
         checkBtn.addEventListener('click', () => {
-          const checkId = checkBtn.parentNode.id;
-          this.updateStatus(checkId);
+          const index = checkBtn.parentNode.id;
+          this.updateStatus(index);
         });
       });
     }
