@@ -68,4 +68,9 @@ describe('Check status, content updates and clear all completed tasks', () => {
     task.editTask(1, 'Task Two edited');
     expect(JSON.parse(localStorage.getItem('tasks'))).toEqual([{ description: 'Task Two edited', completed: true, index: 1 }]);
   });
+  test('should check if task is edited in the DOM', () => {
+    const inputDescription = document.querySelector('.description');
+    expect(inputDescription.value).toEqual('Task Two edited');
+  });
+
 });
