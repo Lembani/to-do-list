@@ -30,6 +30,7 @@ const task = new Task();
 
 const taskOne = 'Task One';
 const taskTwo = 'Task Two';
+const taskThree = 'Task Three';
 
 describe('check if add and delete task are using localStorage and the DOM', () => {
   test('should add a task to localStorage', () => {
@@ -54,5 +55,12 @@ describe('check if add and delete task are using localStorage and the DOM', () =
   test('should remove task from the DOM', () => {
     const addedItems = document.querySelectorAll('.tasks-container');
     expect(addedItems.length).toBe(1);
+  });
+});
+
+describe('Check status, content updates and clear all completed tasks', () => {
+  test('should check if status is changed', () => {
+    task.updateStatus(1);
+    expect(JSON.parse(localStorage.getItem('tasks'))).toEqual([{ description: taskTwo, completed: true, index: 1 }]);
   });
 });
