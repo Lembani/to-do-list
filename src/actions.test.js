@@ -30,11 +30,19 @@ const task = new Task();
 
 const taskOne = 'Task One';
 const taskTwo = 'Task Two';
-const taskThree = 'Task Three';
 
 describe('check if add and delete task are using localStorage and the DOM', () => {
   test('should add a task to localStorage', () => {
     task.addTask(taskOne);
-    expect(JSON.parse(localStorage.getItem('tasks'))).toEqual([{ description: taskOne, completed: false, index: 1 }]);
+    task.addTask(taskTwo);
+    expect(JSON.parse(localStorage.getItem('tasks'))).toEqual([
+      { description: taskOne, completed: false, index: 1 },
+      { description: taskTwo, completed: false, index: 2 },
+    ]);
+  });
+
+  test('should add tasks to the DOM', () => {
+    const addedItems = document.querySelectorAll('.tasks-container');
+    expect(addedItems.length).toBe(2);
   });
 });
