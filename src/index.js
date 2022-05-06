@@ -13,11 +13,11 @@ const clearComplete = document.querySelector('.clear-btn');
 const task = new Task();
 
 addBtn.addEventListener('click', () => {
-  task.addTask(description);
+  task.addTask(description.value);
 });
 addTaskInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    task.addTask(description);
+    task.addTask(description.value);
   }
 });
 
