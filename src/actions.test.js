@@ -45,4 +45,13 @@ describe('check if add and delete task are using localStorage and the DOM', () =
     const addedItems = document.querySelectorAll('.tasks-container');
     expect(addedItems.length).toBe(2);
   });
+  test('should remove task from localStorage', () => {
+    task.deleteTask(1);
+    expect(JSON.parse(localStorage.getItem('tasks'))).toHaveLength(1);
+  });
+
+  test('should remove task from the DOM', () => {
+    const addedItems = document.querySelectorAll('.tasks-container');
+    expect(addedItems.length).toBe(1);
+  });
 });

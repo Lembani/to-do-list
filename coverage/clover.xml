@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651833781266" clover="3.2.0">
-  <project timestamp="1651833781266" name="All files">
+<coverage generated="1651836143440" clover="3.2.0">
+  <project timestamp="1651836143441" name="All files">
     <metrics statements="65" coveredstatements="42" conditionals="18" coveredconditionals="8" methods="17" coveredmethods="8" elements="100" coveredelements="58" complexity="0" loc="65" ncloc="65" packages="1" files="1" classes="1"/>
-    <file name="actions.js" path="/Users/lembani/microverse/to-do-list/src/actions.js">
+    <file name="actions.js" path="C:\Users\tyran\OneDrive\Desktop\MICROVERSE\MODULE 2\PROJECTS\to-do-list\src\actions.js">
       <metrics statements="65" coveredstatements="42" conditionals="18" coveredconditionals="8" methods="17" coveredmethods="8"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="3" type="stmt"/>
