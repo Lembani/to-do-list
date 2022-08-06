@@ -80,7 +80,7 @@ Open the project using a live saver extension that can be found into your code e
 
 - GitHub: [@lembani](https://github.com/lembani)
 - Twitter: [@lembani_](https://twitter.com/lembani_)
-- LinkedIn: [lembani-sakala-b58615109](https://linkedin.com/in/lembani-sakala-b58615109)
+- LinkedIn: [lembani-sakala](https://linkedin.com/in/lembani-sakala)
 
 ## 🤝 Contributing
 
